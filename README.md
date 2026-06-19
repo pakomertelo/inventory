@@ -34,14 +34,54 @@ npm run build
 npm start
 ```
 
-## Deploy en Vercel
 
-1. Sube el repositorio a GitHub, GitLab o Bitbucket.
-2. Crea un nuevo proyecto en Vercel e importa el repositorio.
-3. Vercel detectará Next.js automáticamente.
-4. Ejecuta el deploy sin variables de entorno ni servicios adicionales.
+## Deploy en Vercel paso a paso
 
-La aplicación funciona completamente en el navegador usando `localStorage`, por lo que cada usuario mantiene su propia demo local.
+La app está preparada para Vercel y no necesita servidor propio, base de datos, variables de entorno ni servicios externos. Vercel ejecutará `npm install` y `npm run build`, y servirá la aplicación Next.js automáticamente.
+
+### Opción A: desde la interfaz web de Vercel
+
+1. Crea una cuenta o inicia sesión en [Vercel](https://vercel.com).
+2. Sube este proyecto a un repositorio Git en GitHub, GitLab o Bitbucket.
+3. En Vercel, pulsa **Add New... > Project**.
+4. Selecciona el repositorio de la aplicación.
+5. En **Framework Preset**, Vercel debería detectar **Next.js** automáticamente.
+6. Deja estos valores por defecto:
+   - **Install Command:** `npm install`
+   - **Build Command:** `npm run build`
+   - **Output Directory:** vacío / automático para Next.js
+7. No añadas variables de entorno: no hacen falta.
+8. Pulsa **Deploy**.
+9. Cuando termine, Vercel mostrará una URL pública tipo `https://tu-proyecto.vercel.app`.
+
+### Opción B: desde la CLI de Vercel
+
+Instala la CLI si no la tienes:
+
+```bash
+npm i -g vercel
+```
+
+Desde la raíz del proyecto, ejecuta:
+
+```bash
+vercel
+```
+
+Para publicar directamente en producción:
+
+```bash
+vercel --prod
+```
+
+Durante el asistente de la CLI puedes aceptar la configuración detectada para Next.js. No necesitas configurar base de datos ni variables de entorno.
+
+### Después del deploy
+
+- La persistencia se guarda en `localStorage`, así que cada navegador tendrá sus propios datos demo.
+- Para volver al estado inicial, entra en **Ajustes** y pulsa **Restaurar datos demo**.
+- Para llevar datos entre navegadores o demos, exporta JSON desde **Ajustes** e impórtalo después en otro navegador.
+- Si haces cambios en el repositorio conectado a Vercel, cada push generará un nuevo deploy automáticamente.
 
 ## Notas para demo comercial
 

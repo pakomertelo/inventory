@@ -10,3 +10,13 @@
 - Añadidos datos realistas de ejemplo y persistencia en `localStorage`.
 - Añadida exportación JSON/CSV, importación JSON y restauración de datos demo.
 - Documentado uso local, build y despliegue en Vercel en `README.md`.
+
+## 2026-06-19 - Documentación de deploy
+
+- Ampliadas las instrucciones de despliegue en Vercel con pasos para interfaz web y CLI.
+- Añadida configuración `vercel.json` explícita para documentar comandos de instalación, desarrollo y build.
+
+## 2026-06-19 - Corrección de build en Vercel
+
+- Corregido un parámetro sin tipo explícito en `app/page.tsx` que impedía pasar la validación TypeScript de `next build`.
+- Actualizado Next.js a la línea parcheada `14.2.35` para evitar el aviso de seguridad mostrado por Vercel.
